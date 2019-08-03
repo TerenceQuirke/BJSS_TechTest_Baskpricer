@@ -1,6 +1,4 @@
-package com.bjss.techtest.baskpricer.model;
-
-import java.math.BigDecimal;
+package com.bjss.techtest.basketpricer.model;
 
 public class Product {
     private String name;

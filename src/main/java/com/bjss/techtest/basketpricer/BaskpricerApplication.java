@@ -1,4 +1,4 @@
-package com.bjss.techtest.baskpricer;
+package com.bjss.techtest.basketpricer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
