@@ -1,8 +1,8 @@
 package com.bjss.techtest.basketpricer.controller;
 
 import com.bjss.techtest.basketpricer.model.ProductType;
-import com.bjss.techtest.basketpricer.service.BasketCalculatorResponse;
-import com.bjss.techtest.basketpricer.service.CalculateBasketPriceRequest;
+import com.bjss.techtest.basketpricer.model.BasketCalculatorResponse;
+import com.bjss.techtest.basketpricer.model.CalculateBasketPriceRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;

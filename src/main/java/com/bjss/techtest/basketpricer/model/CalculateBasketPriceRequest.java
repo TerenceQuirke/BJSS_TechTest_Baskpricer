@@ -1,4 +1,4 @@
-package com.bjss.techtest.basketpricer.service;
+package com.bjss.techtest.basketpricer.model;
 
 import com.fasterxml.jackson.annotation.*;
 
