@@ -10,7 +10,7 @@ public class ProductPriceLookup {
     private static final BigDecimal applesPrice = BigDecimal.valueOf(1);
 
     public Product ProductWithPrice(ProductType productType){
-        BigDecimal productPrice = BigDecimal.ZERO;
+        BigDecimal productPrice;
 
         switch (productType) {
             case Bread:

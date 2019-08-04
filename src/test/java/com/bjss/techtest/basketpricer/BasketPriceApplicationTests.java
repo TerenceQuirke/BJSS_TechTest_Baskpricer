@@ -3,7 +3,6 @@ package com.bjss.techtest.basketpricer;
 import com.bjss.techtest.basketpricer.model.Basket;
 import com.bjss.techtest.basketpricer.model.Product;
 import com.bjss.techtest.basketpricer.model.ProductType;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +13,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
-
-import static org.apache.logging.log4j.util.Strings.EMPTY;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
