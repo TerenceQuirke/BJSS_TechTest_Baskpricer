@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bjss.techtest</groupId>
-	<artifactId>baskpricer</artifactId>
+	<artifactId>basketpricer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>baskpricer</name>
+	<name>basketpricer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

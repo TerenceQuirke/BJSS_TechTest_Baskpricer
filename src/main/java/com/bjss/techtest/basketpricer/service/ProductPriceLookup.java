@@ -1,4 +1,7 @@
-package com.bjss.techtest.basketpricer.model;
+package com.bjss.techtest.basketpricer.service;
+
+import com.bjss.techtest.basketpricer.model.Product;
+import com.bjss.techtest.basketpricer.model.ProductType;
 
 import java.math.BigDecimal;
 
