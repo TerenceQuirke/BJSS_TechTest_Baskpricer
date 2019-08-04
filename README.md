@@ -47,8 +47,8 @@ The program should accept a list of items in the basket and output the subtotal,
 Input should be via a request
 
 For example:
-{
-	"priceBasket":[ "item1", "item2", "item3" ]
+{  
+   "PriceBasket":[ "Apples","Apples","Apples","bread","soup","soup","giraffe"]
 }
  
 
