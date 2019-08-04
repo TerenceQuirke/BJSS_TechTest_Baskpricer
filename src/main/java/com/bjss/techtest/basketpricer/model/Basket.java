@@ -7,16 +7,23 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class Basket {
-    private final Offer offer = new Offer(this);
+    private Offer offer;
     private final CurrencyHandler currencyHandler = new CurrencyHandler();
     private List<Product> products = new LinkedList<Product>();
-    private BigDecimal offerDiscount = new BigDecimal(0);
-    private String offersDetails = "(No offers available)";
+    private BigDecimal offerDiscount;
+    private String offersDetails;
     private BigDecimal subtotal;
     private ProductPriceLookup productPriceLookup;
 
-    public Basket(){
-        productPriceLookup= new ProductPriceLookup();
+
+    public Basket(List<ProductType> productList){
+        this.productPriceLookup= new ProductPriceLookup();
+        for (final ProductType productType: productList) {
+            addProduct(productType);
+        }
+        offer = new Offer(this);
+        this.offerDiscount = offer.getOfferDiscount();
+        this.offersDetails = offer.getOfferDetailMessage();
     }
 
     public void addProduct(Product product) {
@@ -25,7 +32,7 @@ public class Basket {
 
     public void addProduct(ProductType productType)
     {
-        products.add(productPriceLookup.ProductWithPrice(productType));
+        this.products.add(productPriceLookup.ProductWithPrice(productType));
     }
 
     public List<Product> getProducts()
@@ -37,7 +44,7 @@ public class Basket {
         return offerDiscount;
     }
 
-    public String calculateBasketSubtotal(){
+    public String getFormattedBasketSubtotal(){
         BigDecimal calculatedSubtotal = BigDecimal.ZERO;
         for (final Product product : products) {
             calculatedSubtotal = calculatedSubtotal.add(product.getPrice());
@@ -46,23 +53,15 @@ public class Basket {
         return currencyHandler.currencyFormatter(calculatedSubtotal);
     }
 
-    public String calculateOffers(){
-
-        return offer.calculateOffers();
-    }
-
     public String getOffersDetails(){
         return offersDetails;
     }
 
     public String getTotal(){
-        if(offersDetails.contains("(No offers available)")){
-            offer.calculateOffers();
-        }
-        return currencyHandler.currencyFormatter(subtotal.add(offerDiscount));
+        return currencyHandler.currencyFormatter(subtotal.subtract(offerDiscount));
     }
 
-    public void setOffersDetails(String offerDetails){
+    private void setOffersDetails(String offerDetails){
         this.offersDetails = offerDetails;
     }
 

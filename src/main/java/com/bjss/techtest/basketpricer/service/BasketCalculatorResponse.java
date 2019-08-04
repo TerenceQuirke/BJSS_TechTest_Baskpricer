@@ -11,12 +11,9 @@ public class BasketCalculatorResponse {
     private final String total;
 
     public BasketCalculatorResponse(List<ProductType> basketProducts){
-        Basket basket = new Basket();
-        for (final ProductType productType : basketProducts) {
-            basket.addProduct(productType);
-        }
+        Basket basket = new Basket(basketProducts);
 
-        this.subtotal = basket.calculateBasketSubtotal();
+        this.subtotal = basket.getFormattedBasketSubtotal();
         this.offers = basket.getOffersDetails();
         this.total = basket.getTotal();
     }
