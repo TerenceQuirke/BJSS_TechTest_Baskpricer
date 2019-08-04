@@ -7,6 +7,8 @@ import java.util.Currency;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.bjss.techtest.basketpricer.model.ProductType.Apples;
+
 public class Offer {
     private final Basket basket;
     private final CurrencyHandler currencyConverter;
@@ -16,20 +18,14 @@ public class Offer {
         this.currencyConverter = new CurrencyHandler();
     }
 
-    public String calculateOffers() {
-        Map<ProductType, Integer> frequencyMap = new HashMap<ProductType, Integer>();
-        for (final Product product : basket.getProducts()) {
-            Integer count = frequencyMap.get(product.getName());
-            if (count == null)
-                count = 0;
 
-            frequencyMap.put(product.getName(), count + 1);
-        }
-        if (frequencyMap.containsKey(ProductType.Apples)) {
-            if (frequencyMap.get(ProductType.Apples) >= 2) {
+    public String calculateOffers() {
+        Map<ProductType, Integer> frequencyMap = getProductTypeIntegerMap();
+        if (frequencyMap.containsKey(Apples)) {
+            if (frequencyMap.get(Apples) >= 2) {
                 BigDecimal appleDiscount = new BigDecimal(0);
                 for (final Product product : basket.getProducts()) {
-                    if (product.getName() == ProductType.Apples) {
+                    if (product.getName() == Apples) {
                         BigDecimal discount = product.getPrice().movePointLeft(1);
                         appleDiscount = appleDiscount.add(discount.negate());
                     }
@@ -67,5 +63,17 @@ public class Offer {
         }
 
         return currencyConverter.currencyFormatter(basket.getOfferDiscount());
+    }
+
+    private Map<ProductType, Integer> getProductTypeIntegerMap() {
+        Map<ProductType, Integer> frequencyMap = new HashMap<ProductType, Integer>();
+        for (final Product product : basket.getProducts()) {
+            Integer count = frequencyMap.get(product.getName());
+            if (count == null)
+                count = 0;
+
+            frequencyMap.put(product.getName(), count + 1);
+        }
+        return frequencyMap;
     }
 }

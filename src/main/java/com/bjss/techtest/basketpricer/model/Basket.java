@@ -52,9 +52,6 @@ public class Basket {
     }
 
     public String getOffersDetails(){
-        if(offersDetails.contains("(No offers available)")){
-            offer.calculateOffers();
-        }
         return offersDetails;
     }
 
