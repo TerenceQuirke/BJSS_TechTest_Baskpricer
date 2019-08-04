@@ -1,26 +1,28 @@
 package com.bjss.techtest.basketpricer.model;
 
+import java.math.BigDecimal;
+
 public class Product {
-    private String name;
-    private double price;
-    public Product(String name, double price)
+    private ProductType name;
+    private BigDecimal price;
+    public Product(ProductType name, BigDecimal price)
     {
         setName(name);
         setPrice(price);
     }
-    public String getName(){
+    public ProductType getName(){
         return name;
     }
 
-    public double getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
-    public void setName(String name){
+    public void setName(ProductType name){
         this.name = name;
     }
 
-    public void setPrice(double price){
+    public void setPrice(BigDecimal price){
         this.price = price;
     }
 }

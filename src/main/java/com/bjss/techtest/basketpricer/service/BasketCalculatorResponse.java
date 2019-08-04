@@ -1,22 +1,30 @@
 package com.bjss.techtest.basketpricer.service;
 
 import com.bjss.techtest.basketpricer.model.Basket;
+import com.bjss.techtest.basketpricer.model.ProductType;
 
-import java.text.NumberFormat;
-import java.util.Locale;
+import java.util.List;
 
 public class BasketCalculatorResponse {
-    private final Basket basket;
     private final String subtotal;
     private final String offers;
     private final String total;
 
     public BasketCalculatorResponse(Basket basket){
-        this.basket = basket;
-        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.UK);
-        this.subtotal = format.format(basket.calculateBasketSubtotal());
-        this.offers = "(No offers available)";
-        this.total = this.subtotal;
+        this.subtotal = basket.calculateBasketSubtotal();
+        this.offers = basket.getOffersDetails();
+        this.total = basket.getTotal();
+    }
+
+    public BasketCalculatorResponse(List<ProductType> basketProducts){
+        Basket basket = new Basket();
+        for (final ProductType productType : basketProducts) {
+            basket.addProduct(productType);
+        }
+
+        this.subtotal = basket.calculateBasketSubtotal();
+        this.offers = basket.getOffersDetails();
+        this.total = basket.getTotal();
     }
 
     public String getSubtotal(){
@@ -30,4 +38,5 @@ public class BasketCalculatorResponse {
     public String getTotal(){
         return total;
     }
+
 }
