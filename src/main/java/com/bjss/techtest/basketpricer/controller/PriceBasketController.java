@@ -1,7 +1,5 @@
 package com.bjss.techtest.basketpricer.controller;
 
-import com.bjss.techtest.basketpricer.model.Basket;
-import com.bjss.techtest.basketpricer.model.Product;
 import com.bjss.techtest.basketpricer.model.ProductType;
 import com.bjss.techtest.basketpricer.service.BasketCalculatorResponse;
 import com.bjss.techtest.basketpricer.service.CalculateBasketPriceRequest;
@@ -17,7 +15,7 @@ public class PriceBasketController {
     @ResponseBody
     public BasketCalculatorResponse calculateBasketPrice(@RequestBody CalculateBasketPriceRequest basketProducts){
         List<ProductType> productTypeList = new LinkedList<ProductType>();
-        for (final String basketProduct: basketProducts.getProductList()) {
+        for (final String basketProduct: basketProducts.getPriceBasket()) {
             productTypeList.add(searchEnum(ProductType.class, basketProduct));
         }
         BasketCalculatorResponse response = new BasketCalculatorResponse(productTypeList);

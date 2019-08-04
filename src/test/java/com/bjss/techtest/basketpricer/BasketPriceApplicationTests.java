@@ -19,7 +19,7 @@ import static org.apache.logging.log4j.util.Strings.EMPTY;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BaskPricerApplicationTests {
+public class BasketPriceApplicationTests {
 
 	@Test
 	public void BasketCalculatesCorrectSubTotal()

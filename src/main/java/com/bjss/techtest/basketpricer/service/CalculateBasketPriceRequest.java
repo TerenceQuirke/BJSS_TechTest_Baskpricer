@@ -1,17 +1,14 @@
 package com.bjss.techtest.basketpricer.service;
 
-import java.util.*;
-
-import com.bjss.techtest.basketpricer.model.ProductType;
 import com.fasterxml.jackson.annotation.*;
 
 
 
 public class CalculateBasketPriceRequest {
-    private String[] productList;
+    private String[] PriceBasket;
 
-    @JsonProperty("ProductList")
-    public String[] getProductList() { return productList; }
-    @JsonProperty("ProductList")
-    public void setProductList(String[] value) { this.productList = value; }
+    @JsonProperty("PriceBasket")
+    public String[] getPriceBasket() { return PriceBasket; }
+    @JsonProperty("PriceBasket")
+    public void setPriceBasket(String[] value) { this.PriceBasket = value; }
 }
