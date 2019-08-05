@@ -63,7 +63,7 @@ public class Offer {
 
     private BigDecimal calculateBreadAndSoupDiscount() {
         BigDecimal discountHolder = BigDecimal.ZERO;
-        if (frequencyMap.containsKey(ProductType.Bread) & frequencyMap.containsKey(ProductType.Soup)) {
+        if (frequencyMap.containsKey(ProductType.Bread) && frequencyMap.containsKey(ProductType.Soup)) {
             if (frequencyMap.get(ProductType.Soup) >= 2 && frequencyMap.get(ProductType.Bread) >= 1) {
                 long soupCount = frequencyMap.get(ProductType.Soup);
                 long breadCount = frequencyMap.get(ProductType.Bread);
