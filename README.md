@@ -69,4 +69,14 @@ If no special offers are applicable the code should output:
 The code and design should meet these requirements, but be sufficiently flexible to allow future changes to the product list and/or discounts applied. 
 The code should be well structured, commented, have error handling and be tested. 
  
+Running the App:
+
+Unzip
+run "mvn clean install"
+java -jar ./target/basketpricer-0.0.1-SNAPSHOT.jar
+
+url for endpoint: http://localhost:8080/api/v1/calculateBasketPrice
+
+
+
  
